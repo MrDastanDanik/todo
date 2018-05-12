@@ -1,5 +1,7 @@
 @extends('layout')
 
+@section('title', 'Home')
+
 @section('content')
-    Home Sweet Home
+    Undone tasks: {{ $undone_tasks_count }}
 @endsection

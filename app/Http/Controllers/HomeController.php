@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: dastan
@@ -9,14 +10,19 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Http\Request;
+
 class HomeController extends Controller
 {
     /**
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function home()
+    public function home(Request $request)
     {
-        return view('home');
+        return view('home')->with([
+            'undone_tasks_count' => $request->user()->tasks()->undone()->count()
+        ]);
     }
 
     /**
