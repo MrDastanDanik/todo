@@ -13,6 +13,9 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@root');
-Route::get('home', 'HomeController@home')->name('home');
-Route::get('tasks', 'TasksController@view')->name('tasks');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', 'HomeController@root');
+    Route::get('home', 'HomeController@home')->name('home');
+    Route::get('tasks', 'TasksController@view')->name('tasks');
+});
+
