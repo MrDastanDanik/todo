@@ -32,6 +32,11 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     /**
+     * @var array
+     */
+    protected $fillable = ['text'];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
@@ -49,11 +54,4 @@ class Task extends Model
     {
         return $query->where('is_done', false);
     }
-
-    /**
-     * @var array
-     */
-    protected $fillable = [
-        'text'
-    ];
 }
