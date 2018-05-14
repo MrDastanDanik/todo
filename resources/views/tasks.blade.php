@@ -14,7 +14,7 @@
         @endforeach
     </ul>
 
-    <form method="POST" action="{{ 'tasks' }}">
+    <form method="POST" action="{{ route('task.create') }}">
         @csrf
         <input type="text" name="text" placeholder="Task">
         <input type="submit" value="Add">
