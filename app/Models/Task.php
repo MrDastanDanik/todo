@@ -49,4 +49,11 @@ class Task extends Model
     {
         return $query->where('is_done', false);
     }
+
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'text'
+    ];
 }

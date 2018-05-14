@@ -29,8 +29,10 @@ class TasksController extends Controller
      */
     public function create(Request $request){
         $text = $request->input('text');
-        User::first()->tasks()->create([
-            'text' => "task $text"
+        $user = $request->user();
+        $user->tasks()->create([
+            'text' => "$text"
         ]);
+        header('Location: /tasks');
     }
 }
