@@ -23,4 +23,13 @@ class TasksController extends Controller
             'tasks' => $request->user()->tasks
         ]);
     }
+
+    /**
+     * @param Request $request
+     */
+    public function create(Request $request){
+        User::first()->tasks()->create([
+            'text' => "task $request"
+        ]);
+    }
 }
