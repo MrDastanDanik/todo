@@ -13,4 +13,11 @@
             <li>{{$task->text}}</li>
         @endforeach
     </ul>
+
+    <form method="POST" action="{{ 'tasks' }}">
+        @csrf
+        <input type="text" name="text" placeholder="Task">
+        <input type="submit" value="Add">
+    </form>
+
 @endsection
