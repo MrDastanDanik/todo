@@ -23,4 +23,16 @@ class TasksController extends Controller
             'tasks' => $request->user()->tasks
         ]);
     }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function create(Request $request)
+    {
+        $request->user()->tasks()->create([
+            'text' => $request->input('text')
+        ]);
+        return back();
+    }
 }

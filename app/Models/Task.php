@@ -32,6 +32,11 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     /**
+     * @var array
+     */
+    protected $fillable = ['text'];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
