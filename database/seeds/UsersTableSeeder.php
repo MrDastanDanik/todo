@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             User::create([
                 'name' => "User $i",
                 'email' => "user$i@todo.local",
-                'password' => Hash::make("password$i"),
+                'password' => "password$i",
             ]);
         }
     }
