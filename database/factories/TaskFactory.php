@@ -13,10 +13,22 @@ use Faker\Generator as Faker;
 |
 */
 /** @var Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\User::class, function (Faker $faker) {
+$factory->define(App\Models\Task::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'text' => ucfirst($faker->bs) . '.',
+    ];
+});
+
+$factory->state(App\Models\Task::class, 'done', [
+    'is_done' => true,
+]);
+
+$factory->state(App\Models\Task::class, 'undone', [
+    'is_done' => false,
+]);
+
+$factory->state(App\Models\Task::class, 'random_done', function (Faker $faker) {
+    return [
+        'is_done' => $faker->boolean,
     ];
 });

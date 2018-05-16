@@ -18,12 +18,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            User::create([
-                'name' => "User $i",
-                'email' => "user$i@todo.local",
-                'password' => Hash::make("password$i"),
-            ]);
-        }
+        factory(User::class)->create(['email' => 'user@todo.local']);
+        factory(User::class, 49)->create();
     }
 }

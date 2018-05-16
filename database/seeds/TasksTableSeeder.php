@@ -6,6 +6,7 @@
  * Time: 12:32 AM
  */
 
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,11 +19,11 @@ class TasksTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::first();
-        for ($i = 0; $i < 10; $i++) {
-            $user->tasks()->create([
-                'text' => "task $i"
+        User::all()->each(function ($user) {
+            /** @var User $user */
+            factory(Task::class, 25)->states('random_done')->create([
+                'user_id' => $user->id,
             ]);
-        }
+        });
     }
 }
