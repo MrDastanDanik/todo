@@ -6,7 +6,7 @@
  * Time: 12:32 AM
  */
 
-use App\Models\User;
+use App\Models\Task;
 use Illuminate\Database\Seeder;
 
 class TasksTableSeeder extends Seeder
@@ -18,11 +18,6 @@ class TasksTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::first();
-        for ($i = 0; $i < 10; $i++) {
-            $user->tasks()->create([
-                'text' => "task $i"
-            ]);
-        }
+        factory(Task::class, 10)->create();
     }
 }
