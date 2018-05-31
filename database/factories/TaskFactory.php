@@ -10,10 +10,9 @@ use App\Models\Task;
 use Faker\Generator as Faker;
 
 $factory->define(Task::class, function (Faker $faker) {
-    return array(
-        'user_id' => 1,
+    return [
         'text' => $faker->company,
         'is_done' => $faker->boolean,
-    );
+    ];
 });
 
