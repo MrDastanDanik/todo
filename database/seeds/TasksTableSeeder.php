@@ -18,6 +18,10 @@ class TasksTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Task::class, 10)->create();
+        $users = DB::table('users')->get();
+
+        foreach ($users as $user) {
+            factory(Task::class, rand(0, 10))->create( ['user_id' => $user->id]);
+        }
     }
 }
