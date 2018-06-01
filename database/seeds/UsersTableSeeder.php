@@ -18,12 +18,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            User::create([
-                'name' => "User $i",
-                'email' => "user$i@todo.local",
-                'password' => "password$i",
-            ]);
-        }
+        factory(User::class, 10)->create();
     }
 }
