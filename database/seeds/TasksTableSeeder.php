@@ -7,6 +7,7 @@
  */
 
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class TasksTableSeeder extends Seeder
@@ -18,7 +19,7 @@ class TasksTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = DB::table('users')->get();
+        $users = User::all();
 
         foreach ($users as $user) {
             factory(Task::class, rand(0, 10))->create(['user_id' => $user->id]);
